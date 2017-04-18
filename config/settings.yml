@@ -1,0 +1,15 @@
+validation:
+  content: 500
+  name: 255
+  description: 500
+  quantity: 0
+  address: 255
+  full_name: 255
+  phone: 15
+  point: 0
+  price: 0
+  email: 255
+  password: 6
+  user_name_max: 15
+  user_name_min: 3
+  picture_size: 400
