@@ -13,3 +13,5 @@ validation:
   user_name_max: 15
   user_name_min: 3
   picture_size: 400
+image:
+  avatar_size: "300x300"

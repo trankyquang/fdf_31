@@ -1,0 +1,31 @@
+<%= form_for @user, html: {multipart: true} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, yield(:password_confirmation) %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :profile_image, t("alt.profile_image") %>
+    <%= f.file_field :profile_image, id: "image-upload" %>
+    <%= image_tag "#", {size: Settings.image.profile_upload_size,
+      alt: t("alt.profile_image"), class: "img-thumbnail hidden",
+      id: "img_prev"} %>
+  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
