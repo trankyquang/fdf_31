@@ -1,2 +1,22 @@
 en:
   project_name: "Fdf31"
+  header:
+    products: "Products"
+    login: "Login"
+    home: "Home"
+    logout: "Log out"
+    settings: "Settings"
+    profile: "Profile"
+    app_name: "Food and Drink"
+  footer:
+    help: "Help"
+    about: "About"
+  login:
+    login: "Login"
+    remember_me: "Remember me"
+    forgot_password: "Forgot password"
+    new_user: "New user?"
+    title: "Login"
+    signup: "Sign up now"
+  home:
+    title: "Home"
