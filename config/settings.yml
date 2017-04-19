@@ -15,3 +15,5 @@ validation:
   picture_size: 400
 image:
   avatar_size: "300x300"
+recently_viewed:
+  per_page: 5
