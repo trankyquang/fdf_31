@@ -1,0 +1,12 @@
+<tr class="product-in-cart">
+  <td class="w15">
+    <%= image_tag product.image.url, class: "img-responsive",
+      alt: t("alt.product_image") %>
+  </td>
+  <td class="w45">
+    <p><%= product.name %></p>
+  </td>
+  <td class="w15">
+    <p><%= product.price %></p>
+  </td>
+</tr>
