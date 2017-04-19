@@ -21,11 +21,16 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :profile_image, t("alt.profile_image") %>
-    <%= f.file_field :profile_image, id: "image-upload" %>
-    <%= image_tag "#", {size: Settings.image.profile_upload_size,
-      alt: t("alt.profile_image"), class: "img-thumbnail hidden",
-      id: "img_prev"} %>
+    <%= f.label :avatar, t("signup.avatar") %>
+    <%= f.file_field :avatar, id: "image-upload" %>
+    <% if @user.avatar.present? %>
+      <%= image_tag @user.avatar, alt: t("alt.profile_image"),
+        class: "img-responsive", id: "current-profile-image"%>
+    <% end %>
+    <%= image_tag "#", {size: Settings.image.size_thumbnail,
+      alt: t("alt.profile_image"),
+      class: "img-thumbnail hidden", id: "img_prev"} %>
   </div>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

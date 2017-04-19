@@ -14,6 +14,9 @@ validation:
   user_name_min: 3
   picture_size: 400
 image:
-  avatar_size: "300x300"
+  avatar_size: "150x150"
+  size_thumbnail: "80x80"
 recently_viewed:
   per_page: 5
+login_page:
+  checked: "1"

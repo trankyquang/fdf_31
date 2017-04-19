@@ -5,25 +5,41 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("header.home"), root_path %></li>
         <li><%= link_to t("header.products"), "#" %></li>
-          <li>
-            <%= link_to "#", class: "header-cart" do %>
-              <i class="svg-button-cart"></i>
-              <span class="cart-count"></span>
-            <% end %>
-          </li>
+        <% if logged_in? %>
+          <li><%= link_to t("header.cart"), root_path %></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <%= t("header.account") %> <b class="caret"></b>
-            </a>
+            <%= link_to "#", class: "dropdown-toggle",
+              data: {toggle: "dropdown"} do %>
+              <%= current_user.user_name %><b class="caret"></b>
+              <% end %>
             <ul class="dropdown-menu">
-              <li><%= link_to t("header.profile"), "#" %></li>
-              <li><%= link_to t("header.settings"), "#" %></li>
+              <li><%= link_to t("header.profile"), current_user %></li>
+              <li><%= link_to t("header.suggest_product"), "#" %></li>
               <li class="divider"></li>
-              <li><%= link_to t("header.logout"), "#",
-                method: :delete %></li>
+              <li>
+                <%= link_to t("header.logout"),
+                  logout_path, method: :delete %>
+              </li>
             </ul>
           </li>
+          <% if current_user.is_admin? %>
+            <li class="dropdown">
+              <%= link_to "#", class: "dropdown-toggle",
+                data: {toggle: "dropdown"} do %>
+                <%= t "header.dashboard" %> <b class="caret"></b>
+                <% end %>
+              <ul class="dropdown-menu">
+                <li><%= link_to t("header.user_management"), users_path %></li>
+                <li><%= link_to t("header.product_management"), "#" %></li>
+                <li><%= link_to t("header.suggesting_management"), "#" %></li>
+                <li><%= link_to t("header.order_management"), "#" %></li>
+                <li><%= link_to t("header.category_management"), "#" %></li>
+              </ul>
+            </li>
+          <% end %>
+        <% else %>
           <li><%= link_to t("header.login"), login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
