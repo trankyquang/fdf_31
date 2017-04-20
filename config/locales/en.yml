@@ -40,6 +40,8 @@ en:
     password_confirmation: "Confirmation"
     save_changes: "Save changes"
     profile_image: "Profile image"
+    changed: "Update Profile Successful"
+    fails: "Update Profile Failed"
   alt:
     profile_image: "Profile image"
     product_image: "Product image"
@@ -51,6 +53,8 @@ en:
     title: "Recently viewed products"
   show:
     edit_profile: "Edit Profile"
+    recent_view: "Recently View"
+    history_order: "History Order"
   error_page:
     user_not_found: "User Not Found"
     error_page: "Error Page"

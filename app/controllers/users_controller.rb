@@ -18,7 +18,21 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "edit.changed"
+      redirect_to @user
+    else
+      flash[:danger] =  t "edit.fails"
+      render :edit
+    end
+  end
+
   def show
+    @recently_viewed_products = recently_viewed_products.reverse
+      .paginate page: params[:page], per_page: Settings.recently_viewed.per_page
+    @orders = current_user.orders.paginate page: params[:page],
+      per_page: Settings.recently_viewed.per_page
   end
 
   private

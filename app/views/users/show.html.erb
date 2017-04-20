@@ -3,32 +3,65 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= image_tag @user.image.url, alt: t("alt.profile_image"),
+        <%= image_tag @user.avatar, alt: t("alt.profile_image"),
           size: Settings.image.avatar_size %>
+        <br>
         <%= @user.user_name %>
       </h1>
       <p  class="text-center text-info"><%= @user.email %></p>
-      <a href="#" class="btn btn-success full-width-button">
-        <%= t "show.edit_profile" %>
-      </a>
+      <div class="btn-centery">
+        <%= link_to t("show.edit_profile"), edit_user_path,
+          class: "btn btn-success full-width-button" %>
+      </div>
     </section>
   </aside>
   <div class="col-md-8">
-    <h2><%= t "product.title" %></h2>
-    <table class="table recenty-viewed">
-      <thead>
-        <tr>
-          <th><%= t "product.product" %></th>
-          <th><%= t "product.description" %></th>
-          <th><%= t "product.price" %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @products.each do |product| %>
-          <%= render partial: "recently_viewed", locals: {product: product} %>
-        <% end %>
-      </tbody>
-    </table>
-    <%= will_paginate @products %>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab"
+          href="#home_tab" role="tab">
+          <%= t "show.recent_view" %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab"
+          href="#orders_tab" role="tab">
+          <%= t "show.history_order" %>
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="home_tab" role="tabpanel">
+        <table class="table recenty-viewed">
+          <thead>
+            <tr>
+              <th><%= t "recently.product" %></th>
+              <th><%= t "recently.description" %></th>
+              <th><%= t "recently.price" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recently_viewed_products.each do |product| %>
+              <%= render partial: "recently_viewed",
+                locals: {product: product} %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="orders_tab" role="tabpanel">
+        <table class="table recenty-viewed">
+          <thead>
+            <tr>
+              <th></th>
+              <th><%= t "orders.product" %></th>
+              <th><%= t "orders.total" %></th>
+              <th><%= t "orders.status" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @orders %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
