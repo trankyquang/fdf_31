@@ -15,7 +15,7 @@ class User < ApplicationRecord
     length: {maximum: Settings.validation.email},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-    length: {minimum: Settings.validation.password}, allow: nil
+    length: {minimum: Settings.validation.password}, allow_nil: true
 
   has_secure_password
 
