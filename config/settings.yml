@@ -21,3 +21,5 @@ recently_viewed:
   cookie_size: 20
 login_page:
   checked: "1"
+product:
+  products_per_page: 10

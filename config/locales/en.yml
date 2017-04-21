@@ -51,6 +51,10 @@ en:
     price: "Price"
     rating: "Rating"
     title: "Recently viewed products"
+    no_available: "No Available Products"
+    product_not_found: "Product Not Found"
+    add_to_cart: Add to Cart"
+    image: "Product Image"
   show:
     edit_profile: "Edit Profile"
     recent_view: "Recently View"

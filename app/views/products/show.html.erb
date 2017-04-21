@@ -1,0 +1,16 @@
+<%= provide :title, @product.product_name %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag @product.avatar.url, class: "img-responsive",
+        alt: t("product.image") %>
+    </div>
+    <div class="col-md-6">
+      <h2><%= @product.product_name %></h2>
+      <p class="description"><%= @product.product_description %></p>
+      <h3 class="price"><%= number_to_currency @product.product_price %></h3>
+      <%= link_to t("product.add_to_cart"), "#", product: @product.id, 
+          class: "btn btn-primary btn-add-to-cart" %>
+    </div>
+  </div>
+</div>
