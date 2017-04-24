@@ -18,15 +18,16 @@
   <div class="col-md-8">
     <ul class="nav nav-tabs nav-justified" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab"
-          href="#home_tab" role="tab">
-          <%= t "show.recent_view" %></a>
+        <%= link_to t("show.recent_view"), "#home_tab",
+          class:"nav-link active", "data-toggle": "tab", "role": "tab" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab"
-          href="#orders_tab" role="tab">
-          <%= t "show.history_order" %>
-        </a>
+        <%= link_to t("user_profile.suggested_products"), "#suggesting_tab",
+          class: "nav-link active", "data-toggle": "tab", "role": "tab" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to t("show.history_order"), "#orders_tab",
+          class: "nav-link active", "data-toggle": "tab", "role": "tab" %>
       </li>
     </ul>
     <div class="tab-content">
@@ -59,6 +60,21 @@
           </thead>
           <tbody>
             <%= render @orders %>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="suggesting_tab" role="tabpanel">
+        <table class="table recenty-viewed">
+          <thead>
+            <tr>
+              <th><%= t "suggesting.product" %></th>
+              <th><%= t "suggesting.description" %></th>
+              <th><%= t "suggesting.price" %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render current_user.suggestings %>
           </tbody>
         </table>
       </div>

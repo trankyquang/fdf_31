@@ -14,7 +14,8 @@
               <% end %>
             <ul class="dropdown-menu">
               <li><%= link_to t("header.profile"), current_user %></li>
-              <li><%= link_to t("header.suggest_product"), "#" %></li>
+              <li><%= link_to t("header.suggest_product"),
+                new_suggesting_path(current_user) %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to t("header.logout"),
