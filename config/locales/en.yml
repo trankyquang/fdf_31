@@ -65,3 +65,18 @@ en:
   login_page:
     please_login: "Please Login"
     invalid_password: "Invalid Email or Password"
+  suggesting:
+    product: "Product"
+    description: "Description"
+    price: "Price"
+    suggest_successful: "Suggested Successful"
+    success_edited: "Edited Successful"
+    error_edited: "Have Error on Edit Product"
+    success_deleted: "Deleted Successful"
+    error_deleted: "Have Error on Delete Product"
+    product_not_found: "Suggested Product Not Found"
+    confirm_delete: "Are You Sure?"
+    edit_title: "Edit Product Page"
+    edit_button: "Edit Product"
+    title: "Suggestting product Page"
+    new_button: "Suggest Product"

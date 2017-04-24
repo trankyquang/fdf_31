@@ -9,8 +9,8 @@
       <h2><%= @product.product_name %></h2>
       <p class="description"><%= @product.product_description %></p>
       <h3 class="price"><%= number_to_currency @product.product_price %></h3>
-      <%= link_to t("product.add_to_cart"), "#", product: @product.id, 
-          class: "btn btn-primary btn-add-to-cart" %>
+      <%= link_to t("product.add_to_cart"), "#", id: "@product.id"
+        class: "btn btn-primary btn-add-to-cart" %>
     </div>
   </div>
 </div>
