@@ -1,0 +1,59 @@
+<div class="row">
+  <h1 class="text-center"><%= yield :title %></h1>
+</div>
+<div class="row">
+  <%= form_for [:admin, @product], html: {multipart: true} do |f| %>
+    <%= render "shared/error_messages", object: f.object%>
+    <div class="col-md-5 col-md-offset-2">
+      <div class="form-group">
+        <%= f.label :product_name %>
+        <%= f.text_field :product_name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :product_description %>
+        <%= f.text_area :product_description, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :product_price %>
+        <div class="input-group">
+          <%= f.number_field :product_price, class: "form-control",
+            min: Settings.product.min_price,
+            step: Settings.product.step %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :quantity %>
+        <div class="input-group">
+          <%= f.number_field :product_quantity, class: "form-control",
+            min: Settings.product.min_quantity,
+            step: Settings.product.step_quantity %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :category_id %>
+        <%= f.text_area :category_id, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="form-group">
+        <%= f.label :picture %>
+        <%= f.file_field :picture, id: "image-upload" %>
+        <% if @product.picture.present? %>
+          <%= image_tag @product.picture.url, alt: "logo",
+            class: "img-responsive", id: "current-profile-image"%>
+        <% end %>
+        <%= image_tag "#", {size: Settings.product.image_size,
+          alt: t("alt.suggesting_image"),
+          class: "img-thumbnail hidden", id: "img_prev"} %>
+      </div>
+    </div>
+
+    <div class="col-md-5 col-md-offset-2">
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

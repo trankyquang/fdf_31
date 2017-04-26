@@ -30,8 +30,10 @@
                 <%= t "header.dashboard" %> <b class="caret"></b>
                 <% end %>
               <ul class="dropdown-menu">
-                <li><%= link_to t("header.user_management"), users_path %></li>
-                <li><%= link_to t("header.product_management"), "#" %></li>
+                <li><%= link_to t("header.user_management"),
+                  admin_users_path %></li>
+                <li><%= link_to t("header.product_management"),
+                  admin_products_path %></li>
                 <li><%= link_to t("header.suggesting_management"), "#" %></li>
                 <li><%= link_to t("header.order_management"), "#" %></li>
                 <li><%= link_to t("header.category_management"), "#" %></li>

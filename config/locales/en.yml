@@ -45,8 +45,10 @@ en:
   alt:
     profile_image: "Profile image"
     product_image: "Product image"
+    suggesting_image: "Suggeting Product Image"
   product:
     product: "Product"
+    product_name: "Product Name"
     description: "Description"
     price: "Price"
     rating: "Rating"
@@ -55,6 +57,18 @@ en:
     product_not_found: "Product Not Found"
     add_to_cart: Add to Cart"
     image: "Product Image"
+    update_success: "Update Product Successful"
+    update_failed: "Update Product Failed"
+    delete_success: "Delete Product Successfull"
+    delete_failed: "Delete Product Failed"
+    confirm_delete: "Are You Sure?"
+    edit_title: "Edit Product"
+    edit_button: "Edit Product"
+    delete_button: "Delete Product"
+    add_title: "Add New Product"
+    no_product_exists: "No product exists"
+    add_new_button: "Add New Product"
+    add_button: "Add Product"
   show:
     edit_profile: "Edit Profile"
     recent_view: "Recently View"
@@ -65,6 +79,7 @@ en:
   login_page:
     please_login: "Please Login"
     invalid_password: "Invalid Email or Password"
+    permission_denied: "Permission Denied"
   suggesting:
     product: "Product"
     description: "Description"
@@ -78,5 +93,5 @@ en:
     confirm_delete: "Are You Sure?"
     edit_title: "Edit Product Page"
     edit_button: "Edit Product"
-    title: "Suggestting product Page"
+    title: "Suggesting {roduct Page"
     new_button: "Suggest Product"

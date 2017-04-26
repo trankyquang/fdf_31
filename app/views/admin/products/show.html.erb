@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag @product.picture.url, alt: t("alt.product_image"),
+        class: "img-responsive" %>
+    </div>
+    <div class="col-md-6">
+      <h2><%= @product.product_name %>
+      </h2>
+      <div class="row admin-rate-product" product-id="<%= @product.id %>"
+        data-score="<%= @product.product_rating_point %>">
+      </div>
+      <i><%= pluralize @product.product_rating_times, "ratings" %></i>
+      <p class="description"><%= @product.product_description %></p>
+      <h3 class="price"><%= number_to_currency @product.product_price %></h3>
+      <%= link_to t("product.edit_button"), edit_admin_product_path(@product),
+        class: "btn btn-primary" %>
+      <%= link_to t("product.delete_button"), admin_product_path(@product),
+        method: :delete, data: {confirm: t("product.confirm_delete")},
+        class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
