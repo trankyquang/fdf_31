@@ -15,4 +15,8 @@ class UserUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
+
+  def default_url
+    "/assets/" + [version_name, "default_avatar.png"].compact.join("_")
+  end
 end
