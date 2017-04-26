@@ -1,0 +1,31 @@
+  <div class="row">
+    <% if @products.any? %>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="user-table">
+          <table class="table ecommerce-table">
+            <thead>
+              <tr>
+                <th><%= t "product.product" %></th>
+                <th><%= t "product.product_name" %></th>
+                <th><%= t "product.price" %></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "list_product",
+                locals: {products: @products} %>
+            </tbody>
+          </table>
+          <%= will_paginate @products %>
+        </div>
+      </div>
+    <% else %>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-danger no-user-info">
+        <p class="text-center"><%= t "product.no_product_exists" %></p>
+      </div>
+    </div>
+    <% end %>
+    <%= link_to t("product.add_new_button"),
+      new_admin_product_path, class: "btn btn-primary" %>
+  </div>

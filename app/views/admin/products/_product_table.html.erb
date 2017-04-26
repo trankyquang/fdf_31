@@ -1,0 +1,20 @@
+<tr class="user-row">
+  <td class="w20">
+    <%= link_to image_tag(product.picture.url, alt: t("alt.product_image"),
+      class: "img-responsive", size: Settings.product.thumbnail_size),
+      admin_product_path(product) %>
+  </td>
+  <td class="w20">
+    <strong><%= product.product_name %></strong>
+  </td>
+  <td class="w45">
+    <%= product.product_price %>
+  </td>
+  <td>
+    <%= link_to t("product.edit_button"), edit_admin_product_path(product),
+      class: "btn btn-primary" %>
+    <%= link_to t("product.delete_button"), admin_product_path(product),
+      method: :delete,
+      data: {confirm: t("product.confirm_delete")}, class: "btn btn-primary" %>
+  </td>
+</tr>

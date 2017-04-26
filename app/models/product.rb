@@ -15,6 +15,7 @@ class Product < ApplicationRecord
     numericality: {greater_than_or_equal_to: Settings.validation.price}
   validates :product_quantity, presence: true, numericality: {only_integer: true}
   validates :category_id, presence: true
+  validates :picture, presence: true
 
   scope :by_name, -> name do
     where "name LIKE '%#{name}%'" if name.present?
