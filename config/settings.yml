@@ -30,3 +30,6 @@ product:
   min_quantity: 1
   step_quantity: 1
   thumbnail_size: "120x120"
+user:
+  per_page: 20
+  thumbnail_size: "80x80"

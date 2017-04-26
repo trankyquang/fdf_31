@@ -1,0 +1,22 @@
+<tr class="user-row">
+  <td class="w20">
+    <%= image_tag user.avatar.url, alt: t("alt.profile_image"),
+      class: "img-responsive", size: Settings.user.thumbnail_size %>
+  </td>
+  <td class="w20">
+    <strong><%= user.user_name %></strong>
+  </td>
+  <td class="w45">
+    <%= user.email %>
+  </td>
+  <td class="w20">
+    <%= l user.created_at, format: :date_time_format %>
+  </td>
+  <td>
+    <% unless user == current_user %>
+      <%= link_to t("user.delete_button"),
+        admin_user_path(user), method: :delete,
+        data: {confirm: t("user.delete_confirm")}, class: "text-danger" %>
+    <% end %>
+  </td>
+</tr>

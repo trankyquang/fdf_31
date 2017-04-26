@@ -3,7 +3,7 @@ class Admin::ProductsController < ApplicationController
   before_action :load_product, except: [:new, :create, :index]
 
   def index
-    @products = Product.all.paginate page: params[:page],
+    @products = Product.paginate page: params[:page],
       per_page: Settings.product.products_per_page
   end
 

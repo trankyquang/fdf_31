@@ -69,6 +69,7 @@ en:
     no_product_exists: "No product exists"
     add_new_button: "Add New Product"
     add_button: "Add Product"
+    action: "Action"
   show:
     edit_profile: "Edit Profile"
     recent_view: "Recently View"
@@ -95,3 +96,18 @@ en:
     edit_button: "Edit Product"
     title: "Suggesting {roduct Page"
     new_button: "Suggest Product"
+  user:
+    delete_success: "Deleted User Success"
+    delete_failed: "Deleted User Failed"
+    user_not_found: "User Not Found"
+    delete_button: "Delete User"
+    delete_confirm: "Are you Sure"
+    user: "User"
+    user_name: "User Name"
+    email: "Email"
+    create_at: "Registration Date"
+    action: "Action"
+    no_user: "No user exists"
+  time:
+    formats:
+      date_time_format: "%Y-%d-%m %H:%M"

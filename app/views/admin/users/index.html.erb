@@ -1,0 +1,30 @@
+<div class="row">
+    <% if @users.any? %>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="user-table">
+        <table class="table ecommerce-table">
+          <thead>
+            <tr>
+              <th><%= t "user.user" %></th>
+              <th><%= t "user.user_name" %></th>
+              <th><%= t "user.email" %></th>
+              <th><%= t "user.create_at" %></th>
+              <th><%= t "user.action" %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "list_user", locals: {users: @users} %>
+          </tbody>
+        </table>
+        <%= will_paginate @users %>
+      </div>
+    </div>
+  <% else %>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="alert alert-danger no-user-info">
+      <p class="text-center"><%= t "user.no_user" %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
