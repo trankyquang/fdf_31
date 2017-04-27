@@ -90,12 +90,13 @@ en:
     error_edited: "Have Error on Edit Product"
     success_deleted: "Deleted Successful"
     error_deleted: "Have Error on Delete Product"
-    product_not_found: "Suggested Product Not Found"
+    product_not_found: "Suggesting Product Not Found"
     confirm_delete: "Are You Sure?"
     edit_title: "Edit Product Page"
     edit_button: "Edit Product"
-    title: "Suggesting {roduct Page"
+    title: "Suggesting Product Page"
     new_button: "Suggest Product"
+
   user:
     delete_success: "Deleted User Success"
     delete_failed: "Deleted User Failed"

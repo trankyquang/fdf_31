@@ -1,0 +1,27 @@
+<tr class="user-row">
+  <td class="w20">
+    <%= image_tag suggesting.product_image.url, alt: t("alt.product_image"),
+      class: "img-responsive", size: Settings.product.thumbnail_size %>
+  </td>
+  <td class="w20">
+    <strong><%= suggesting.product_name %></strong>
+  </td>
+  <td class="w45">
+    <%= suggesting.product_description %>
+  </td>
+  <td class="w20">
+    <%= suggesting.product_price %>
+  </td>
+  <% if !suggesting.suggesting_status?  %>
+      <td class="w10">
+        <%= link_to t("product.add_title"),new_admin_product_path(
+          suggesting_id: suggesting), class: "btn btn-xs btn-primary" %>
+      </td>
+  <% end %>
+  <td>
+    <%= link_to t("product.delete_button"),
+      admin_suggesting_path(suggesting), method: :delete,
+      data: {confirm: t("product.confirm_delete")},
+      class: "btn btn-xs btn-primary" %>
+  </td>
+</tr>
