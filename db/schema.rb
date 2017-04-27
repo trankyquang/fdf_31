@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.string   "category_name"
     t.string   "category_description"
     t.integer  "parent_category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.integer  "product_id"
     t.integer  "product_price"
     t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["order_id"], name: "index_order_details_on_order_id"
     t.index ["product_id"], name: "index_order_details_on_product_id"
   end
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.integer  "order_status"
     t.integer  "order_cash"
     t.string   "order_receiving_address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.integer  "product_quantity"
     t.float    "product_rating_point"
     t.integer  "product_rating_times"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "picture"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.integer  "user_id"
     t.integer  "product_id"
     t.integer  "rating_point"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["product_id"], name: "index_ratings_on_product_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.integer  "product_price"
     t.text     "product_description"
     t.boolean  "suggesting_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.index ["user_id"], name: "index_suggestings_on_user_id"
   end
 
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 20170419113329) do
     t.string   "phone"
     t.boolean  "is_admin"
     t.string   "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
     t.index ["user_name", "email"], name: "index_users_on_user_name_and_email", unique: true

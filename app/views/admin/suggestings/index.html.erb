@@ -1,0 +1,31 @@
+<div class="row">
+  <% if @suggestings.any? %>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="user-table">
+        <table class="table ecommerce-table">
+          <thead>
+            <tr>
+              <th><%= t "product.product" %></th>
+              <th><%= t "product.product_name" %></th>
+              <th><%= t "product.description" %></th>
+              <th><%= t "product.price" %></th>
+              <th><%= t "product.action" %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: "list_suggesting",
+              locals: {suggestings: @suggestings} %>
+          </tbody>
+        </table>
+        <%= will_paginate @suggestings %>
+      </div>
+    </div>
+  <% else %>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="alert alert-danger no-user-info">
+      <p class="text-center"><%= t "product.no_product_exists" %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

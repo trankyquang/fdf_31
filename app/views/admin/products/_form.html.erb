@@ -3,6 +3,7 @@
 </div>
 <div class="row">
   <%= form_for [:admin, @product], html: {multipart: true} do |f| %>
+    <%= hidden_field_tag :suggesting_id, @suggesting.try(:id) %>
     <%= render "shared/error_messages", object: f.object%>
     <div class="col-md-5 col-md-offset-2">
       <div class="form-group">
@@ -46,9 +47,6 @@
           <%= image_tag @product.picture.url, alt: "logo",
             class: "img-responsive", id: "current-profile-image"%>
         <% end %>
-        <%= image_tag "#", {size: Settings.product.image_size,
-          alt: t("alt.suggesting_image"),
-          class: "img-thumbnail hidden", id: "img_prev"} %>
       </div>
     </div>
 
