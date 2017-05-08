@@ -5,7 +5,6 @@ capybara-*.html
 /tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/public/system
 /coverage/
 /spec/tmp
 **.orig
@@ -14,7 +13,6 @@ pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
-config/secrets.yml
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
@@ -46,5 +44,3 @@ config/database.yml
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
-
-public/uploads/

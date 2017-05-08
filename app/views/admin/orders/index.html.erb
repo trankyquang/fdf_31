@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= "Order Management" %></h1>
+  </div>
+</div>
+<div class="row">
+  <% if @orders.any? %>
+    <div class="col-md-12">
+      <div class="user-table">
+        <table class="table ecommerce-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th><%= "Email" %></th>
+              <th><%= "Product" %></th>
+              <th><%= "Address" %></th>
+              <th><%= "Payment" %></th>
+              <th><%= "Status" %></th>
+              <th><%= "Action" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @orders %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% else %>
+  <div class="col-md-10">
+    <div class="alert alert-danger no-user-info">
+      <p class="text-center"><%= "No Order in Shop" %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

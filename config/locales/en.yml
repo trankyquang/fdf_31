@@ -96,6 +96,32 @@ en:
     edit_button: "Edit Product"
     title: "Suggesting Product Page"
     new_button: "Suggest Product"
+  order:
+    flash_reject: "Reject Order Successful"
+    flash_confirm: "Confirm Order Successful"
+    error_when_confirm: "Have error when confirming order"
+    error_when_reject: "Have error when rejecting order"
+    order_not_found: "Order not found"
+    order_success: "Your Order was created successful"
+    title_details: "Order Details #"
+
+  cart:
+    product_out_of_stock: "Sorry! Product Out of Stock"
+    add_error: "Cannot Add Product to Cart"
+
+  rating:
+    success: "Thanks for your rating!"
+    failure: "Rating failure"
+
+  mail:
+    title: "You have a order"
+    hi: "Hi"
+
+  category:
+    create_success: "Category was created successful"
+    update_success: "Category was updated successful"
+    delete_success: "Category was deleted successful"
+    delete_failure: "Category was deleted failure"
 
   user:
     delete_success: "Deleted User Success"
@@ -109,6 +135,7 @@ en:
     create_at: "Registration Date"
     action: "Action"
     no_user: "No user exists"
+    
   time:
     formats:
       date_time_format: "%Y-%d-%m %H:%M"

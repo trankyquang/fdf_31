@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include ProductsHelper
+  include CartsHelper
 
   def verify_admin
     unless current_user.is_admin?
@@ -18,4 +19,5 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
 end

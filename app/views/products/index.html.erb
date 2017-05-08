@@ -1,10 +1,25 @@
-<div class = "row product-list">
-  <div class="col-md-10">
-    <% if @products.any? %>
-      <%= render @products %>
-      <%= will_paginate %>
-    <% else %>
-      <p class="text-info"><%= t "product.no_available" %></p>
-    <% end %>
+<% provide :title, "all_products" %>
+
+<div class="container">
+  <div class="category-menu">
+    <ul class="main-navigation">
+      <%= raw render_html_menu %>
+    </ul>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+    <aside class="col-md-3">
+      <%= render "shared/search_form" %>
+    </aside>
+      <div class="col-md-9">
+        <% if @products.any? %>
+          <%= render @products %>
+          <%= will_paginate %>
+        <% else %>
+          <p class="text-info"><%= t "product.no_available" %></p>
+        <% end %>
+      </div>
   </div>
 </div>

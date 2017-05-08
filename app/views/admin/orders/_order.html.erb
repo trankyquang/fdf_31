@@ -1,0 +1,33 @@
+<tr class="product-in-cart">
+  <td class="col-md-1">
+    <%= link_to "##{order.id}", admin_order_path(order) %>
+  </td>
+  <td class="col-md-1">
+    <p><%= order.user.email %></p>
+  </td>
+  <td class="col-md-1">
+    <p><%= pluralize order.order_details_count, "product" %></p>
+  </td>
+  <td class="col-md-2">
+    <p><%= order.order_receiving_address %></p>
+  </td>
+  <td class="col-md-1">
+    <p><%= number_to_currency order.total_summary %></p>
+  </td>
+  <td class="col-md-1">
+    <p><%= order.order_status.name   %></p>
+  </td>
+
+  <td class="col-md-2">
+    <% if order.order_status_id == Settings.order.status_pending %>
+      <%= form_tag admin_order_path(order), method: :put do %>
+        <%= hidden_field_tag :order_action, "confirm" %>
+        <%= submit_tag "Confirm", class: "btn btn-primary btn-confirm" %>
+      <% end %>
+      <%= form_tag admin_order_path(order), method: :put do %>
+        <%= hidden_field_tag :order_action, "reject" %>
+        <%= submit_tag "Reject", class: "btn btn-danger btn-reject" %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

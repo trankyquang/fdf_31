@@ -1,0 +1,43 @@
+<h2><%= t "order.title_details" %><%= @order.id %></h2>
+<div class="row">
+  <div class="col-md-8">
+    <% if @order.order_details.any? %>
+      <table class="table ecommerce-table">
+        <thead>
+          <tr>
+            <th>
+              <h4><%= pluralize @order.order_details_count, "product" %></h4>
+            </th>
+            <th><%= t "table.name" %></th>
+            <th><%= t "table.item_price" %></th>
+            <th><%= t "table.quantity" %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_details.each do |order_detail| %>
+            <%= render partial: "detail",
+              locals: {order_detail: order_detail} %>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-danger no-user-info">
+          <p class="text-center"><%= t "info.no_user" %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4 order-summary">
+    <h4><%= t "orders.order_summary" %></h4>
+    <hr>
+    <p>
+      <span><%= t "orders.total_payment_amount" %>
+      </span>
+      <span class="pull-right total">
+        <%= number_to_currency @order.total_summary %>
+      </span>
+    </p>
+  </div>
+</div>

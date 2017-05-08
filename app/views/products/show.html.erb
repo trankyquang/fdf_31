@@ -1,16 +1,37 @@
-<%= provide :title, @product.product_name %>
+<% provide :button_text_rating, "Rating" %>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <%= image_tag @product.avatar.url, class: "img-responsive",
+    <div class="col-md-5">
+      <%= image_tag @product.picture.url, class: "img-responsive-show",
         alt: t("product.image") %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-7">
       <h2><%= @product.product_name %></h2>
+      <p class="product-rating">
+        <% if @product.product_rating_times.nil? %>
+          <b><%= t "review" %>0.0(0)</b>
+        <% else %>
+          <%= "Review " %><%= @product.product_rating_point.round 2 %>
+            (<%= pluralize @product.product_rating_times, "rating"  %> )
+        <% end %>
+      </p>
       <p class="description"><%= @product.product_description %></p>
       <h3 class="price"><%= number_to_currency @product.product_price %></h3>
-      <%= link_to t("product.add_to_cart"), "#", id: "@product.id"
-        class: "btn btn-primary btn-add-to-cart" %>
+      <% if current_user.present? %>
+        <div>
+          <%= form_for :rating, url: ratings_path(:rating) do |r| %>
+            <%= r.hidden_field :user_id, value: current_user.id %>
+            </br>
+            <%= r.hidden_field :product_id, value: @product.id %>
+            <%= r.number_field :rating_point, min: 1, max: 5, step: 1, value: 5,
+              class: "rating-point-product" %>
+            <%= r.submit yield(:button_text_rating),
+              class: "btn btn-default btn-rating" %>
+          <% end %>
+        </div>
+      <% end %>
+      <a href="#" class="btn btn-primary btn-add-to-cart"
+        product="<%= @product.id %>"><%= t "button.add_to_cart" %></a>
     </div>
   </div>
 </div>

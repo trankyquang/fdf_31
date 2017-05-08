@@ -1,0 +1,22 @@
+<%= form_for @category do |f| %>
+  <%= render "shared/error_message_category", object: @category %>
+
+  <div class="field">
+    <%= f.label :category_name %>
+    <%= f.text_field :category_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_description %>
+    <%= f.text_area :category_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parent_category %>
+    <%= show_combobox_categories f %>
+  </div>
+
+  <div class="field">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>

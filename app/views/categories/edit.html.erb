@@ -1,0 +1,10 @@
+<% provide :title, "editing_category" %>
+<% provide :button_text, "update_category" %>
+
+<h1><%= "Edit Category" %></h1>
+
+<%= render "form", category: @category %>
+
+</br>
+<%= link_to "show", @category %> |
+<%= link_to "back", categories_path %>

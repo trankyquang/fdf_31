@@ -18,9 +18,12 @@ class CookieCollection < Array
   private
 
   def update_cookie
-    ids = map(&:id)
-    @cookies[cookie_name] = {value: ids.join(","),
-      expires: 2.years.from_now}
+    begin
+      ids = pluck(:id)
+      @cookies[cookie_name] = {value: ids.join(","),
+        expires: 2.years.from_now}
+    rescue
+    end
   end
 
   def cookie_name

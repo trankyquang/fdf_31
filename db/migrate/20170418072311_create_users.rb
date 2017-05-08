@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :phone
       t.boolean :is_admin
       t.string :avatar
-
+    
       t.timestamps
     end
     add_index :users, [:user_name, :email], unique: true

@@ -1,0 +1,15 @@
+<div class="card col-sm-6 col-md-3">
+  <%= form_tag carts_path, remote: true do |f| %>
+    <%= link_to image_tag(product.picture.url, alt: "product image",
+      class: "img-responsive-index"), product %>
+      <h4><b><%= product.product_name %></b></h4>
+      <p class="product-price">
+        <%= number_to_currency product.product_price %>
+      </p>
+      <%= hidden_field_tag :product_id, product.id %>
+      <%= hidden_field_tag :quantity, 1 %>
+      <%= submit_tag "Add to Cart",
+        class: "btn full-width-button" %>
+  <% end %>
+</br>
+</div>

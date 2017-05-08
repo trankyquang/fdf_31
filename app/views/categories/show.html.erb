@@ -1,0 +1,25 @@
+<% provide :title, "Detail Category" %>
+
+<h1><%= "Detail Category" %></h1>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= "Name" %></th>
+          <th><%= "Description" %></th>
+          <th><%= "Parent Category" %></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= @category.category_name %></td>
+            <td><%= @category.category_description %></td>
+            <td><%= get_parent_category_name @category.parent_category %></td>
+      </tbody>
+    </table>
+  </div>
+  </br>
+  <%= link_to "Edit", edit_category_path(@category) %> |
+  <%= link_to "Back", categories_path %>
+</div>

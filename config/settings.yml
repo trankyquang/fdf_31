@@ -29,7 +29,15 @@ product:
   image_size: "300x300"
   min_quantity: 1
   step_quantity: 1
-  thumbnail_size: "120x120"
+  thumbnail_size: "170x170"
 user:
   per_page: 20
   thumbnail_size: "80x80"
+order:
+  per_page: 10
+  status_pending: 1
+  status_confirm: 2
+category:
+  per_page: 10
+  max_name: 20
+  max_description: 50

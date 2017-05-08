@@ -1,0 +1,40 @@
+<tr class="product-in-cart">
+  <td class="w15">
+    <%= image_tag product.picture.url, alt: t("alt.product_image"),
+      class: "img-responsive" %>
+  </td>
+  <td class="w45">
+    <p><%= product.product_name %></p>
+    <i><%= pluralize(product.product_quantity, "item") %> <%= t "cart.in_stock" %></i>
+  </td>
+  <td class="w15">
+    <p><%= number_to_currency product.product_price %></p>
+  </td>
+  <td class="w20 quantity">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="input-group number-spinner">
+          <span class="input-group-btn">
+            <button class="btn btn-default" data-dir="down"
+              product="<%= product.id %>">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </span>
+          <input type="text" class="form-control text-center only-number"
+            value="<%= current_cart.quantity product %>">
+          <span class="input-group-btn">
+            <button class="btn btn-success" data-dir="up"
+              product="<%= product.id %>">
+              <span class="glyphicon glyphicon-plus">
+              </span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </td>
+  <td class="remove">
+    <%= link_to "remove", carts_path(product_id: product.id),
+      method: :delete, remote: true %>
+  </td>
+</tr>

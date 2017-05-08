@@ -4,4 +4,6 @@ class Category < ApplicationRecord
     length: {maximum: Settings.validation.name}
   validates :category_description, presence: true,
     length: {maximum: Settings.validation.content}
+
+  scope :all_category, -> {order(:category_name)}
 end

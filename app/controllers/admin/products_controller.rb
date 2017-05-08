@@ -4,7 +4,7 @@ class Admin::ProductsController < ApplicationController
   before_action :load_suggesting, only: [:new, :create]
 
   def index
-    @products = Product.paginate page: params[:page],
+    @products = Product.top_new_products.paginate page: params[:page],
       per_page: Settings.product.products_per_page
   end
 
@@ -21,7 +21,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new product_params
-    if !@product.picture? && @suggesting.product_image?
+    if !@product.picture? && @suggesting.present? && @suggesting.product_image?
       @product.assign_attributes(picture: @suggesting.product_image)
     end
     if @product.save
@@ -43,7 +43,7 @@ class Admin::ProductsController < ApplicationController
     else
       flash[:danger] = t "product.update_failed"
     end
-    redirect_to admin_products_path
+    redirect_to admin_product_path(@product)
   end
 
   def show
@@ -62,15 +62,12 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit :product_name, :product_description,
-      :product_price, :product_quantity, :picture, :category_id
+      :product_price, :product_quantity, :picture, :category_id,
+      :product_rating_point, :product_rating_times
   end
 
   def load_suggesting
     @suggesting = Suggesting.find_by id: params[:suggesting_id]
-    unless @suggesting
-      flash[:danger] = t "suggesting.product_not_found"
-      redirect_to admin_suggestings_path
-    end
   end
 
   def load_product

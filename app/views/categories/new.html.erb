@@ -1,0 +1,9 @@
+<% provide :title, "New Category" %>
+<% provide :button_text, "Create Category" %>
+
+<h1><%= t "new_category" %></h1>
+
+<%= render "form", category: @category %>
+
+</br>
+<%= link_to "back", categories_path %>

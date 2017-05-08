@@ -1,0 +1,29 @@
+<h1><%= "Order Confirm" %></h1>
+
+<p><%= " Hi Admin" %>,</p>
+
+<p>
+  <%= "Please go to your website and confirm this order" %>
+</p>
+
+<div class="container">
+  <div class="row">
+    <h1><%= "http://localhost:3000/admin/orders" %></h1>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><%= "Order ID" %></th>
+              <th><%= "Order receiving address" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @order.id %></td>
+              <td><%= @order.order_receiving_address %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

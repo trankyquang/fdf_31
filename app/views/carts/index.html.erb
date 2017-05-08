@@ -1,0 +1,47 @@
+<h2><%= "Your Cart" %></h2>
+<div class="row">
+  <% if current_cart.products.any? %>
+    <div class="col-md-8">
+      <table class="table ecommerce-table">
+        <thead>
+          <tr>
+            <th>
+              <h4><%= pluralize current_cart.product_count, "product" %></h4>
+            </th>
+            <th></th>
+            <th><%= t "cart.item_price" %></th>
+            <th><%= t "cart.quantity" %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: "cart_table",
+            locals: {products: current_cart.products}%>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4 order-summary">
+      <h4><%= t "cart.order_summary" %></h4>
+      <hr>
+      <p><span><%= t "cart.total_payment_amount" %></span>
+        <span class="pull-right total">
+          <%= number_to_currency current_cart.total %>
+        </span>
+      </p>
+
+      <div class="row">
+        <%= form_for @order do |f| %>
+          <div class="form-group">
+            <%= f.label :address %>
+            <%= f.text_field :order_receiving_address, class: "form-control" %>
+          </div>
+
+          <%= f.submit "Proceed to checkout",
+            class: "btn btn-primary btn-checkout" %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <p><%= "No Item in your cart. Please go to Shop and Add Product to Cart!" %></p>
+  <% end %>
+</div>
